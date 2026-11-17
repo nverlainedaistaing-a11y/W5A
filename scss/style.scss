@@ -1,0 +1,116 @@
+
+@use "header";
+@use "footer";
+
+// SCSS variables
+$primary: #0084FF;
+$dark: #15233F;
+$light: #F4F8FF;
+$accent: #B8DDFF;
+$radius: 18px;
+
+// Global styles
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: $light;
+    color: $dark;
+}
+
+.main-content {
+    width: 100%;
+    max-width: 1150px;
+    margin: 0 auto;
+    padding: 30px 20px;
+    flex: 1;
+}
+
+// Mobile-first hero
+.hero {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 25px;
+    align-items: center;
+
+    .hero-text {
+        h1 {
+            font-size: 2.1rem;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            color: $dark;
+        }
+
+        p {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: #526179;
+            margin-bottom: 28px;
+        }
+    }
+
+    .hero-visual {
+        background: linear-gradient(135deg, $primary, $dark);
+        color: white;
+        min-height: 260px;
+        border-radius: $radius;
+        padding: 30px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        box-shadow: 0 15px 35px rgba(0, 132, 255, 0.16);
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 12px;
+        }
+
+        p {
+            font-size: 1rem;
+            color: $accent;
+        }
+    }
+}
+
+.button {
+    display: inline-block;
+    background: $primary;
+    color: white;
+    padding: 14px 24px;
+    border-radius: 10px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: transform 0.3s, background 0.3s;
+
+    &:hover {
+        background: $dark;
+        transform: translateY(-3px);
+    }
+}
+
+// Tablet and desktop
+@media (min-width: 768px) {
+    .main-content {
+        padding: 80px 30px;
+    }
+
+    .hero {
+        grid-template-columns: 1fr 1fr;
+        gap: 50px;
+
+        .hero-text h1 {
+            font-size: 3rem;
+        }
+
+        .hero-visual {
+            min-height: 350px;
+        }
+    }
+}
